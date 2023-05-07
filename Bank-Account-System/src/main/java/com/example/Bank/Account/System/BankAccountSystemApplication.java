@@ -9,8 +9,8 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 
 @SpringBootApplication
 @EnableScheduling
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 
 
 public class BankAccountSystemApplication {

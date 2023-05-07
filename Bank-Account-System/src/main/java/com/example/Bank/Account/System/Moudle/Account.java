@@ -1,4 +1,4 @@
-package com.example.Bank.Account.System.AccountMoudle;
+package com.example.Bank.Account.System.Moudle;
 
 import lombok.Data;
 import javax.persistence.*;
