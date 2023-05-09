@@ -13,15 +13,13 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    // function to create customer (createCustomer)
-    public void createCustomer(String name, String email, String phone) {
-        Customer customer = new Customer(); // create object
-        customer.setName(name);
-        customer.setEmail(email);
-        customer.setPhone(phone);
-//        customer.setCreatedDate(new Date()); // give current date
-//        customer.setUpdatedDate(new Date()); // give current date
-//        customer.setIsActive(Boolean.TRUE);
-        customerRepository.save(customer);
+    public void addCustomer(Customer customer) {
+        Customer customerInfo = new Customer();
+        customerInfo.setName(customer.getName());
+        customerInfo.setEmail(customer.getEmail());
+        customerInfo.setPhone(customer.getPhone());
+        customerInfo.setIsActive(customer.getIsActive());
+        customerRepository.save(customerInfo);
+
     }
 }

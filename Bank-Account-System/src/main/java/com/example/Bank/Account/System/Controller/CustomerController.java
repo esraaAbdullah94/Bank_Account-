@@ -1,26 +1,30 @@
 package com.example.Bank.Account.System.Controller;
 
+import com.example.Bank.Account.System.Moudle.Customer;
+import com.example.Bank.Account.System.Service.AccountService;
 import com.example.Bank.Account.System.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+
 @RequestMapping(value = "customer")
+@RestController
 public class CustomerController {
+
     @Autowired
     CustomerService customerService;
 
-    // the function creates a new customer
-    @RequestMapping(value = "createCustomer", method = RequestMethod.POST)
-    public String createCustomer(@RequestParam String name, String email, String phone) {
+    @Autowired
+    AccountService accountService;
+
+
+    @RequestMapping(value = "addCustomer", method = RequestMethod.POST)
+    public String addCustomer(@RequestBody Customer customer) {
         try {
-            customerService.createCustomer(name, email, phone);
+            customerService.addCustomer(customer);
+            return "Customer added Successfully";
         } catch (Exception e) {
-            return "Failed try again";
+            return "Customer added Failed";
         }
-        return "Record Created Successfully :)";
     }
 }
