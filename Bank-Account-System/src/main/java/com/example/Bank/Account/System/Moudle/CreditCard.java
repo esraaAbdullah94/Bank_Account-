@@ -1,22 +1,26 @@
 package com.example.Bank.Account.System.Moudle;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
-@Entity
+
+@Getter
+@Setter
 @Data
-public class CreditCard extends BaseEntity{
+@Entity
+public class CreditCard extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-
-    Integer cardNumber;
-
+    Integer creditCardNumber;
     Double payment;
 
-    @OneToOne
-    @JoinColumn(name="Customer_ID",referencedColumnName = "id")
-    Customer customer;
-
+    @ManyToOne
+    @JoinColumn(name = "customerId", referencedColumnName = "id")
+    Customer customer; // many account to one customer
 
 }
