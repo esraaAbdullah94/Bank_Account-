@@ -1,6 +1,7 @@
 package com.example.Bank.Account.System.Controller;
 
 import com.example.Bank.Account.System.Moudle.Customer;
+import com.example.Bank.Account.System.RequestObject.UpdateCustomerInfo;
 import com.example.Bank.Account.System.Service.AccountService;
 import com.example.Bank.Account.System.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,16 @@ public class CustomerController {
             return "Customer added Successfully";
         } catch (Exception e) {
             return "Customer added Failed";
+        }
+    }
+
+    @RequestMapping(value = "updateCustomer", method = RequestMethod.POST)
+    public String updateCustomer(@RequestBody UpdateCustomerInfo updateCustomerInfo) {
+        try {
+            customerService.updateCustomer(updateCustomerInfo);
+            return "Customer Updated Successfully";
+        } catch (Exception e) {
+            return "Customer Updated Failed";
         }
     }
 }

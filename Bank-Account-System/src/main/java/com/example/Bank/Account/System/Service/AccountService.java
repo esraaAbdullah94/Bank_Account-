@@ -8,6 +8,8 @@ import com.example.Bank.Account.System.RequestObject.AccountRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 
 
@@ -34,5 +36,9 @@ public class AccountService {
     public double getBalanceForAccount(Integer id) {
         return accountRepository.getBalanceForAccount(id);
 
+    }
+
+    public List<Account> getCustomerAccountInformation(Integer customerId) {
+        return accountRepository.getCustomerAccountInformation(customerId);
     }
 }
