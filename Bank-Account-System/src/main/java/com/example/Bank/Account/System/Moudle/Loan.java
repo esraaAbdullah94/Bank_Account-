@@ -1,11 +1,15 @@
 package com.example.Bank.Account.System.Moudle;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
-@Entity
+@Getter
+@Setter
 @Data
-
+@Entity
 public class Loan extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,8 +17,9 @@ public class Loan extends BaseEntity {
     Double amount;
     Double interestRate;
 
-    @OneToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "id")
-    Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "customerId", referencedColumnName = "id")
+    Customer customer; // many Loan to one customer
+
 
 }
