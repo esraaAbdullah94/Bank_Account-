@@ -9,11 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
-    @Query("SELECT a from Account a")
-    List<Account> getAllAccount();
 
-    @Query("SELECT a from Account a where a.id= :accountId")
-    Account getAccountById(@Param("accountId") Integer id);
+
 }

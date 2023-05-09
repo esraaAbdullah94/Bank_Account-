@@ -10,11 +10,9 @@ import java.util.List;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-    @Query("SELECT c from Customer c where c.id= :customerId")
-    Customer getCustomerById(@Param("customerId") Integer id);
 
-    @Query("SELECT c from Customer c")
-    List<Customer> getAllCustomer();
+    @Query(value = "SELECT c.id FROM Customer c WHERE c.phone = :phone")
+    Integer findIdByPhoneNumber(@Param("phone") String phone);
 
 
 
