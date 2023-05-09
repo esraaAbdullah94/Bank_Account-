@@ -22,9 +22,9 @@ public class AccountService {
         Account account = new Account(); // create object
         account.setAccountNumber(accountNumber);
         account.setBalance(balance);
-        account.setCreatedDate(new Date()); // give current date
-        account.setUpdatedDate(new Date()); // give current date
-        account.setIsActive(Boolean.TRUE);
+//        account.setCreatedDate(new Date()); // give current date
+//        account.setUpdatedDate(new Date()); // give current date
+//        account.setIsActive(Boolean.TRUE);
         Customer customer = customerRepository.findById(customerID).get();
         account.setCustomer(customer);
         accountRepository.save(account);

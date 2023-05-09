@@ -19,9 +19,9 @@ public class CustomerService {
         customer.setName(name);
         customer.setEmail(email);
         customer.setPhone(phone);
-        customer.setCreatedDate(new Date()); // give current date
-        customer.setUpdatedDate(new Date()); // give current date
-        customer.setIsActive(Boolean.TRUE);
+//        customer.setCreatedDate(new Date()); // give current date
+//        customer.setUpdatedDate(new Date()); // give current date
+//        customer.setIsActive(Boolean.TRUE);
         customerRepository.save(customer);
     }
 }

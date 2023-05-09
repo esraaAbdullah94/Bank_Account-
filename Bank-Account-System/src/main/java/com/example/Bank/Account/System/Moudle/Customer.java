@@ -1,8 +1,12 @@
 package com.example.Bank.Account.System.Moudle;
 
 import lombok.Data;
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+@Getter
+@Setter
 @Entity
 @Data
 public class Customer extends BaseEntity{

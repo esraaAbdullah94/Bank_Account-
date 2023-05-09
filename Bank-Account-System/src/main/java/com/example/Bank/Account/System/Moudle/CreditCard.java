@@ -12,7 +12,7 @@ public class CreditCard extends BaseEntity{
 
     Integer cardNumber;
 
-    Double CreditLimit;
+    Double payment;
 
     @OneToOne
     @JoinColumn(name="Customer_ID",referencedColumnName = "id")
