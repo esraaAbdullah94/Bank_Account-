@@ -5,9 +5,11 @@ import com.example.Bank.Account.System.Moudle.Customer;
 import com.example.Bank.Account.System.Repository.AccountRepository;
 import com.example.Bank.Account.System.Repository.CustomerRepository;
 import com.example.Bank.Account.System.RequestObject.AccountRequest;
+import com.example.Bank.Account.System.RequestObject.AccountRequestForUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.List;
 
 @Service
@@ -31,6 +33,17 @@ public class AccountService {
         accountInfo.setCustomer(customerId);
         accountInfo.setIsActive(account.getIsActive());
         accountRepository.save(accountInfo);
+
+    }
+
+    public void updateAccount(AccountRequestForUpdate accountRequestForUpdate) throws ParseException {
+        Account account = new Account();
+        account.setId(accountRequestForUpdate.getId());
+        account.setAccountNumber(accountRequestForUpdate.getAccountNumber());
+        account.setIsActive(accountRequestForUpdate.getIsActive().toString());
+        Customer customer = customerRepository.getCustomerById(accountRequestForUpdate.getCustomerId());
+        account.setCustomer(customer);
+        accountRepository.save(account);
 
     }
     public double getBalanceForAccount(Integer id) {
