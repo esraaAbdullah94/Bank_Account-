@@ -46,6 +46,10 @@ public class AccountService {
         accountRepository.save(account);
 
     }
+    public void deleteAccount(Integer id) {
+        accountRepository.deleteAccount(id);
+    }
+
     public double getBalanceForAccount(Integer id) {
         return accountRepository.getBalanceForAccount(id);
 

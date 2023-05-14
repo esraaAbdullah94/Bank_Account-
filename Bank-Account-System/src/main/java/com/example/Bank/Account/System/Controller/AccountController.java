@@ -36,6 +36,16 @@ public class AccountController {
         }
 
     }
+    @RequestMapping(value = "deleteAccount", method = RequestMethod.GET)
+    public String deleteAccount(Integer id){
+        try {
+            accountService.deleteAccount(id);
+            return " Account deleted Successfully ";
+        } catch (Exception e) {
+
+            return "Account deletion failed";
+        }
+    }
 
         @RequestMapping(value = "getBalanceForAccount", method = RequestMethod.GET)
         public double getBalanceForAccount(@RequestParam Integer id) {
