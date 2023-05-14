@@ -46,8 +46,8 @@ public class AccountController {
             return "Account deletion failed";
         }
     }
-
-        @RequestMapping(value = "getBalanceForAccount", method = RequestMethod.GET)
+///2. Retrieve the account balance for a specific account.
+    @RequestMapping(value = "getBalanceForAccount", method = RequestMethod.GET)
         public double getBalanceForAccount(@RequestParam Integer id) {
             return accountService.getBalanceForAccount(id);
         }
