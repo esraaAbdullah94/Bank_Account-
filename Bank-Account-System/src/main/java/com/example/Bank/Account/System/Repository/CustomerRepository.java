@@ -1,5 +1,6 @@
 package com.example.Bank.Account.System.Repository;
 
+import com.example.Bank.Account.System.Moudle.Account;
 import com.example.Bank.Account.System.Moudle.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -8,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Repository
@@ -18,10 +20,13 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query(value = "SELECT m FROM Customer m where m.id= :customerId")
     Customer getCustomerById(@Param("customerId") Integer id);
+    @Query("SELECT a FROM Account a WHERE a.customer = :customer")
+    List<Account> getAccountsByCustomer(@Param("customer") Customer customer);
     @Modifying
    @Transactional
    @Query("UPDATE Customer c SET c.isActive=0  WHERE c.id = :id")
    void deleteCustomer(@Param("id") Integer id);
+
 
 
 }

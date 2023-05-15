@@ -1,11 +1,14 @@
 package com.example.Bank.Account.System.Controller;
 
+import com.example.Bank.Account.System.Moudle.Account;
 import com.example.Bank.Account.System.Moudle.Customer;
 import com.example.Bank.Account.System.RequestObject.UpdateCustomerInfo;
 import com.example.Bank.Account.System.Service.AccountService;
 import com.example.Bank.Account.System.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RequestMapping(value = "customer")
@@ -47,5 +50,10 @@ public class CustomerController {
             return "customer delete failed";
         }
 
+    }
+    @GetMapping("getAllCustomerAccounts")
+    public List<Account> getCustomerAccounts(@RequestParam Integer customerId) {
+        List<Account> accounts = customerService.getCustomerAccounts(customerId);
+        return accounts;
     }
 }
